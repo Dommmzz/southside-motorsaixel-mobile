@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Southside Motorsaixel - showroom, bengkel, katalog motor, dan komunitas pecinta Harley-Davidson di Bandung Selatan.">
+<meta name="keywords" content="Harley-Davidson, Bandung, toko motor, bengkel V-Twin, komunitas motor, Southside Motorsaixel">
+<meta name="author" content="Southside Motorsaixel">
+<meta name="theme-color" content="#FF6A00">
+<title>SOUTHSIDE MOTORSAIXEL - Company Profile &amp; Toko Motor Harley-Davidson</title>
+<style>
+  :root{
+    --orange:#FF6A00; --black:#000; --bg:#0B0B0B; --bg2:#151515; --card:#161616;
+    --line:#2A2A2A; --text:#DDD; --muted:#9A9A9A;
+    --head:'Arial Black', Arial, sans-serif; --sans:Arial, Helvetica, sans-serif; --serif:Georgia,'Times New Roman',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5;overflow-x:hidden}
+  img,video,iframe{max-width:100%;display:block}
+  a{color:var(--orange);text-decoration:none}
+  .wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 20px}
+  .eyebrow{font-size:.8rem;letter-spacing:.35em;color:var(--orange);font-weight:bold;text-transform:uppercase}
+  h1,h2,h3{font-family:var(--head);font-weight:900;color:#fff;line-height:1.1}
+  h2{font-size:clamp(1.6rem,5vw,2.4rem);margin:.4rem 0 .8rem}
+  .bar{width:90px;height:4px;background:var(--orange);border:0;margin:0 0 1rem}
+  .center{text-align:center}.center .bar{margin-left:auto;margin-right:auto}
+  section{padding:clamp(48px,9vw,80px) 0;border-top:1px solid var(--line)}
+  .sub{font-family:var(--serif);font-style:italic;color:#BDBDBD}
+  .o{color:var(--orange)}
+
+  /* marquee */
+  .promo{background:var(--orange);color:#000;overflow:hidden;white-space:nowrap;height:38px;display:flex;align-items:center}
+  .promo span{display:inline-block;padding-left:100%;font-family:var(--head);font-size:.8rem;animation:run 40s linear infinite}
+  @keyframes run{to{transform:translateX(-100%)}}
+  .promo:hover span{animation-play-state:paused}
+
+  /* topbar */
+  .topbar{background:#000;font-size:.7rem;color:var(--muted)}
+  .topbar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding-top:10px;padding-bottom:10px}
+  .topbar a{color:var(--muted)}
+
+  /* header */
+  .head{background:#141414}
+  .head .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;padding-bottom:24px}
+  .logo{font-family:var(--head);font-size:clamp(1.4rem,5vw,2.3rem);color:#fff;line-height:1.1}
+  .logo small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.25em;color:#8A8A8A;margin-top:6px;font-weight:normal}
+  .callbox{text-align:right;font-size:.65rem;letter-spacing:.3em;color:#8A8A8A}
+  .callbox a{display:block;font-family:var(--head);font-size:clamp(1.1rem,3.5vw,1.6rem);color:var(--orange);letter-spacing:0;margin-top:2px}
+
+  /* nav */
+  nav{background:var(--orange);position:sticky;top:0;z-index:50}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  nav ul{list-style:none;display:flex;justify-content:space-between;width:100%}
+  nav li a{display:block;padding:16px 8px;font-family:var(--head);font-size:.78rem;color:#000;white-space:nowrap}
+  nav li a:hover{background:#000;color:var(--orange)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:14px 0;width:100%;text-align:left;font-family:var(--head);font-size:.85rem;color:#000;align-items:center;justify-content:space-between}
+  .burger i{display:block;width:26px;height:3px;background:#000;box-shadow:0 8px 0 #000,0 -8px 0 #000}
+
+  /* hero */
+  .hero{background:#000 url('ssm.jpg') center/cover no-repeat;min-height:550px;display:flex;align-items:center;padding:40px 0}
+  .hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:none;padding:0 clamp(20px,4vw,48px)}
+  .hero-text{background:#000;padding:clamp(22px,4vw,40px);max-width:620px;flex:1 1 auto}
+  .hero-text h1{font-size:clamp(2rem,7vw,3.6rem);margin:.6rem 0}
+  .hero-text blockquote{font-family:var(--serif);font-style:italic;color:#fff;font-size:clamp(1rem,2.5vw,1.25rem);margin:1rem 0 1.5rem}
+  .btn{display:inline-block;background:var(--orange);color:#000;font-family:var(--head);padding:16px 28px;font-size:.9rem;text-align:center;border:0;cursor:pointer}
+  .btn:hover{background:#fff}
+  .hero-img{flex:0 0 auto;border:1px solid var(--orange);background:#000;padding:8px}
+  .hero-img img{width:min(350px,30vw);height:auto;aspect-ratio:7/8;object-fit:cover}
+  .hline{background:var(--orange);height:6px}
+
+  /* features */
+  .feat{background:#171717}
+  .feat .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:32px;padding-bottom:32px;text-align:center}
+  .feat b{display:block;font-family:var(--head);color:var(--orange);font-size:1rem}
+  .feat span{font-size:.75rem;color:#B0B0B0}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:start}
+  .about p{font-family:var(--serif);color:#CFCFCF;margin-bottom:1rem;text-align:justify}
+  .about p b{color:#fff}
+  figure{border:1px solid var(--orange);background:#000}
+  figure img{width:100%;height:auto;aspect-ratio:6/5;object-fit:cover}
+  figcaption{padding:12px;text-align:center;font-family:var(--serif);font-style:italic;font-size:.85rem;color:#CCC}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #2E2E2E;background:#161616;margin:50px 0}
+  .stats div{padding:28px 10px;text-align:center;border-right:1px solid #2E2E2E}
+  .stats div:last-child{border-right:0}
+  .stats b{display:block;font-family:var(--head);font-size:clamp(1.4rem,4vw,2.2rem);color:var(--orange)}
+  .stats span{font-size:.65rem;letter-spacing:.22em;color:#B0B0B0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .panel{background:#000;border-top:4px solid var(--orange);padding:clamp(22px,4vw,32px);font-family:var(--serif);color:#fff}
+  .panel.alt{background:#1E1E1E;border-top-color:#fff}
+  .panel h3{font-size:1.5rem;color:var(--orange);margin-bottom:.5rem}
+  .panel hr{border:0;height:2px;width:60px;background:var(--orange);margin-bottom:1rem}
+  .panel p{margin-bottom:1.2rem;text-align:justify}
+  .panel ol,.panel ul{padding-left:1.3rem}.panel li{margin-bottom:.5rem}
+
+  /* community */
+  .alt-bg{background:var(--bg2)}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:36px 0 20px}
+  .card3{background:#000;border-top:4px solid var(--orange);padding:26px;text-align:center}
+  .card3 em{display:block;font-style:normal;font-family:var(--head);font-size:2.6rem;color:var(--orange)}
+  .card3 b{display:block;font-family:var(--head);font-size:1.15rem;color:#fff;margin:.2rem 0 .8rem}
+  .card3 p{font-size:.9rem;color:#C8C8C8}
+  .cta{background:var(--orange);color:#000;text-align:center;padding:28px 16px;font-family:var(--head);font-size:clamp(1rem,3.5vw,1.6rem)}
+  .cta small{display:block;font-family:var(--sans);font-size:.9rem;font-weight:bold;margin-top:6px}
+
+  /* media */
+  #multimedia{background:#0F0F0F}
+  .media{display:grid;grid-template-columns:1.9fr 1fr;gap:20px}
+  .mbox{border:1px solid #2E2E2E;background:#000;border-top:4px solid var(--orange);display:flex;flex-direction:column}
+  .mbox video{width:100%;height:auto;aspect-ratio:16/9;background:#000}
+  .mcap{padding:14px 16px;font-size:.85rem;color:#fff;background:#0B0B0B}
+  .mcap::before{content:"\25B6  ";color:var(--orange)}
+  .audio{background:#161616;text-align:center;padding:36px 16px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+  .note{width:72px;height:72px;background:var(--orange);color:#000;font-size:2rem;display:flex;align-items:center;justify-content:center}
+  .audio b{font-family:var(--head);color:#fff;font-size:1.1rem}
+  .audio i{font-family:var(--serif);font-size:.85rem}
+  .audio audio{width:100%}
+  .mfoot{background:var(--orange);color:#000;text-align:center;padding:14px;font-size:.85rem;font-weight:bold}
+
+  /* catalog */
+  .cat{display:grid;grid-template-columns:220px 1fr;gap:20px}
+  .side .box{border:1px solid #2E2E2E;background:#161616;margin-bottom:20px}
+  .side .box h4{background:var(--orange);color:#000;font-family:var(--head);padding:16px;font-size:1rem}
+  .side .box a{display:block;padding:14px 16px;color:#DDD;font-size:.85rem;border-bottom:1px solid #262626}
+  .help{border:1px solid var(--orange);background:#000;padding:18px;text-align:center;font-size:.85rem;color:#CCC}
+  .help h4{font-family:var(--head);color:var(--orange);font-size:1.1rem;margin-bottom:.8rem}
+  .help a{display:block;margin-top:.8rem;color:#fff;font-weight:bold}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pcard{border:1px solid #2E2E2E;background:#181818;display:flex;flex-direction:column}
+  .pcard img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#000;border-bottom:3px solid var(--orange)}
+  .pcard .in{padding:14px;text-align:center;flex:1;display:flex;flex-direction:column;gap:6px}
+  .pcard small{font-size:.65rem;letter-spacing:.3em;color:var(--orange);font-weight:bold}
+  .pcard h3{font-size:1.2rem}
+  .pcard p{font-size:.75rem;color:#B0B0B0;flex:1}
+  .pcard .price{font-family:var(--head);color:var(--orange);font-size:1rem;border-top:1px solid #262626;padding-top:12px}
+  .pcard .btn{padding:11px;font-size:.8rem;margin-top:6px}
+
+  /* price table */
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--orange)}
+  table.price{width:100%;min-width:760px;border-collapse:collapse;font-size:.85rem}
+  table.price td{border:1px solid var(--orange);padding:14px;text-align:center}
+  .th{background:var(--orange);color:#000;font-family:var(--head);font-size:1rem}
+  .hd td{background:#000;color:var(--orange);font-family:var(--head);font-size:.8rem}
+  .r1 td{background:#1E1E1E}.r2 td{background:#262626}
+  table.price td.cat-t{font-family:var(--head);color:#fff;font-size:.95rem}
+  .pr{color:var(--orange);font-weight:bold}
+  .hint{display:none;font-size:.75rem;color:var(--muted);text-align:right;margin-bottom:6px}
+
+  /* order */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:860px;margin:36px auto 24px}
+  .steps div{background:#161616;padding:16px 8px;text-align:center;font-size:.85rem;font-weight:bold}
+  .steps b{display:block;font-family:var(--head);font-size:1.6rem;color:var(--orange)}
+  form{max-width:860px;margin:0 auto;border:2px solid var(--orange);background:#141414}
+  .fh{background:var(--orange);color:#000;text-align:center;padding:18px 12px}
+  .fh b{display:block;font-family:var(--head);font-size:clamp(1.1rem,4vw,1.5rem)}
+  .fs{background:#000;color:var(--orange);font-family:var(--head);padding:14px 18px;font-size:1rem}
+  .row{display:grid;grid-template-columns:280px 1fr;gap:12px;padding:16px;align-items:center}
+  .row:nth-of-type(odd){background:#1A1A1A}.row:nth-of-type(even){background:#222}
+  .row label,.row .lbl{color:#fff;font-weight:bold;font-size:.85rem;display:block}
+  .row small{display:block;font-size:.7rem;color:#888;font-weight:normal}
+  input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;padding:12px;font-size:16px;font-family:var(--sans);background:#fff;color:#000;border:1px solid #666;border-radius:0}
+  textarea{min-height:130px;resize:vertical}
+  .opts{display:flex;flex-direction:column;gap:12px;font-size:.9rem}
+  .opts.inline{flex-direction:row;gap:28px;flex-wrap:wrap}
+  .opts label{font-weight:normal;display:flex;align-items:center;gap:8px;color:#DDD;font-size:.9rem}
+  input[type=radio],input[type=checkbox]{width:20px;height:20px;accent-color:var(--orange)}
+  .fsub{background:#000;text-align:center;padding:24px 16px}
+  .fsub input{font-family:var(--head);font-size:.9rem;padding:14px 26px;border:0;cursor:pointer;margin:4px}
+  .fsub input[type=submit]{background:var(--orange);color:#000}
+  .fsub input[type=reset]{background:#333;color:#fff}
+  .fsub p{font-size:.7rem;color:#888;margin-top:12px}
+
+  /* location */
+  #lokasi{background:#121212}
+  .loc{display:grid;grid-template-columns:370px 1fr;gap:30px}
+  .info{border:1px solid #2E2E2E;border-top:4px solid var(--orange);background:#161616;align-self:start}
+  .info div{display:flex;align-items:center;gap:16px;padding:18px 16px;border-bottom:1px solid #262626}
+  .info div:last-child{border:0;background:var(--orange);color:#000}
+  .info .ic{font-size:1.6rem;color:var(--orange);width:40px;text-align:center;flex:none}
+  .info div:last-child .ic{color:#000}
+  .info small{display:block;font-size:.65rem;letter-spacing:.3em;font-weight:bold;color:var(--orange)}
+  .info div:last-child small{color:#000}
+  .info a,.info span.v{color:#E6E6E6;font-size:.85rem;word-break:break-word}
+  .info div:last-child span.v{color:#000;font-weight:bold}
+  .map{border:1px solid var(--orange);background:#000}
+  .map iframe{width:100%;height:450px;border:0}
+  .map a{display:block;text-align:center;padding:14px;font-family:var(--head);font-size:.8rem}
+
+  /* footer */
+  footer{background:#000;border-top:6px solid var(--orange)}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px;padding:56px 0 40px}
+  footer h4{font-family:var(--head);color:var(--orange);font-size:.85rem;margin-bottom:.4rem}
+  footer hr{border:0;height:2px;width:30px;background:var(--orange);margin-bottom:1rem}
+  footer p,footer li{font-size:.85rem;color:#AAA}
+  footer ul{list-style:none}footer li{margin-bottom:12px}
+  footer li a{color:#DDD;word-break:break-word}
+  .copy{background:var(--orange);color:#000;text-align:center;padding:24px 16px;font-size:.85rem;border-top:1px solid var(--line)}
+  .copy a{color:#000;font-weight:bold}
+
+  /* ===== TABLET ===== */
+  @media (max-width:900px){
+    .hero .wrap{flex-direction:column;align-items:stretch;gap:20px}
+    .hero-text{max-width:none}
+    .hero-img{align-self:center}
+    .hero-img img{width:min(300px,70vw)}
+    .feat .wrap{grid-template-columns:repeat(2,1fr)}
+    .about{grid-template-columns:1fr;gap:28px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stats div:nth-child(2){border-right:0}
+    .stats div:nth-child(-n+2){border-bottom:1px solid #2E2E2E}
+    .media{grid-template-columns:1fr}
+    .cat{grid-template-columns:1fr}
+    .side{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .side .box,.help{margin:0}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .loc{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .hint{display:block}
+    nav li a{padding:16px 6px;font-size:.7rem}
+  }
+  /* ===== PHONE ===== */
+  @media (max-width:700px){
+    .burger{display:flex}
+    nav ul{display:none;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--orange);border-top:1px solid rgba(0,0,0,.25);box-shadow:0 8px 16px rgba(0,0,0,.5)}
+    nav ul.open{display:flex}
+    nav li a{padding:16px 20px;border-bottom:1px solid rgba(0,0,0,.15);font-size:.85rem}
+    .head .wrap{flex-direction:column;align-items:flex-start}
+    .callbox{text-align:left}
+    .hero{min-height:0}
+    .two,.cards3{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr;gap:8px}
+    .steps{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr;gap:28px;padding:40px 0 24px}
+    .side{grid-template-columns:1fr}
+    .eyebrow{letter-spacing:.2em;font-size:.7rem}
+    .stats span{letter-spacing:.1em}
+    .map iframe{height:320px}
+    .btn.full{display:block}
+  }
+  @media (max-width:480px){
+    .grid{grid-template-columns:1fr}
+    .feat .wrap{gap:20px 10px}
+    .topbar .wrap{flex-direction:column}
+    .opts.inline{gap:20px}
+    .fsub input{display:block;width:100%;margin:8px 0}
+  }
+</style>
+</head>
+<body>
+<a id="atas"></a>
+
+<div class="promo"><span>&#9733; PROMO AKHIR TAHUN 2026 &#9733; Gratis servis perdana untuk setiap pembelian unit baru &#9733; Bonus helm &amp; jaket untuk 10 pemesan pertama &#9733; Trade-in motor lama diterima &#9733; Hubungi 0866-6666-2026 &#9733;</span></div>
+
+<div class="topbar"><div class="wrap">
+  <div><a href="mailto:southsidemotorsaixel@yahoo.com" title="Kirim email">southsidemotorsaixel@yahoo.com</a> &nbsp;|&nbsp; <a href="tel:086666662026" title="Telepon kami">0866-6666-2026</a></div>
+  <div>BUKA: SABTU SORE - MINGGU PAGI &nbsp;|&nbsp; KUMPUL: MALAM MINGGU 19.00</div>
+</div></div>
+
+<header class="head"><div class="wrap">
+  <div class="logo">SOUTHSIDE <span class="o">MOTORSAIXEL</span><small>SPESIALIS HARLEY-DAVIDSON &bull; BANDUNG SELATAN</small></div>
+  <div class="callbox">HUBUNGI KAMI<a href="tel:086666662026">0866-6666-2026</a></div>
+</div></header>
+
+<nav><div class="wrap">
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">MENU <i></i></button>
+  <ul id="menu">
+    <li><a href="#beranda">BERANDA</a></li>
+    <li><a href="#tentang">TENTANG KAMI</a></li>
+    <li><a href="#komunitas">KOMUNITAS</a></li>
+    <li><a href="#multimedia">MULTIMEDIA</a></li>
+    <li><a href="#katalog">KATALOG</a></li>
+    <li><a href="#harga">DAFTAR HARGA</a></li>
+    <li><a href="#pesan">PEMESANAN</a></li>
+    <li><a href="#lokasi">LOKASI</a></li>
+  </ul>
+</div></nav>
+
+<div class="hero" id="beranda"><div class="wrap">
+  <div class="hero-text">
+    <div class="eyebrow">Since 2012 &bull; Koleksi 2026</div>
+    <h1>SOUTHSIDE <span class="o">MOTORSAIXEL</span></h1>
+    <hr class="bar" style="margin-bottom:0">
+    <blockquote>&quot;Ride Loud. Live Free. Jalanan adalah panggung, dan motor Anda adalah suaranya.&quot;</blockquote>
+    <a class="btn" href="#katalog">LIHAT KATALOG MOTOR</a>
+  </div>
+  <div class="hero-img"><img src="longfork.jpg" alt="Motor unggulan Southside Motorsaixel" title="Motor unggulan Southside Motorsaixel"></div>
+</div></div>
+<div class="hline"></div>
+
+<div class="feat"><div class="wrap">
+  <div><b>UNIT BARU &amp; BEKAS</b><span>Terinspeksi dan tercatat</span></div>
+  <div><b>PEMBIAYAAN</b><span>Dibantu tim kami</span></div>
+  <div><b>SERVIS &amp; MODIFIKASI</b><span>Bengkel khusus V-Twin</span></div>
+  <div><b>PENGIRIMAN AMAN</b><span>Ke seluruh Indonesia</span></div>
+</div></div>
+
+<section id="tentang"><div class="wrap">
+  <div class="eyebrow">Company Profile</div>
+  <h2>TENTANG KAMI</h2>
+  <hr class="bar">
+  <div class="about">
+    <div>
+      <p><b>SOUTHSIDE MOTORSAIXEL</b> berawal dari sebuah garasi kecil di <b>Bandung Selatan</b> pada tahun <b>2012</b>. Sekelompok penggemar motor <b>V-Twin</b>, <b>Big Cylinder</b>, dan <b>Choppers</b> berkumpul setiap akhir pekan untuk merawat, memodifikasi, dan bertukar cerita tentang motor impian mereka. Dari kebiasaan sederhana itulah lahir sebuah toko yang kini melayani penjualan unit, servis, hingga perlengkapan berkendara.</p>
+      <p>Kami percaya bahwa memiliki motor custom bukan sekadar soal kendaraan, tetapi <i>gaya hidup</i> dan <u>komunitas</u> yang saling mendukung. Karena itu, setiap pelanggan kami dampingi mulai dari memilih model, menghitung pembiayaan, sampai perawatan jangka panjang oleh mekanik berpengalaman. Setiap unit kami catat lengkap dengan nomor rangka dan riwayat servis<sub>(service history)</sub>.</p>
+      <p>Jangan lewatkan <b>SETIAP MALAM MINGGU pukul 19.00</b>, tepatnya di <u>bengkel kami</u>. <b><i>Kami harap Anda ikut.</i></b> Kami tidak melihat berapa besar kapasitas mesin yang Anda <sup>MILIKI</sup>, tetapi Anda harus punya jiwa 1<sup>%</sup>. Ayo bergabung bersama <b class="o">SOUTHSIDE MOTORSAIXEL</b>!</p>
+    </div>
+    <figure>
+      <img src="garasi.jpg" alt="Garasi pertama Southside Motorsaixel di Bandung Selatan" title="Garasi pertama kami, 2012" loading="lazy">
+      <figcaption>Garasi pertama kami di Bandung Selatan, 2012</figcaption>
+    </figure>
+  </div>
+
+  <div class="stats">
+    <div><b>2012</b><span>TAHUN BERDIRI</span></div>
+    <div><b>19.00</b><span>KUMPUL MALAM MINGGU</span></div>
+    <div><b>V-TWIN</b><span>SPESIALISASI KAMI</span></div>
+    <div><b>1%</b><span>JIWA, BUKAN CC</span></div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <h3>VISI</h3><hr>
+      <p>Menjadi rumah bagi para pecinta motor V-Twin, Big Cylinder, dan Choppers di Indonesia, tempat unit berkualitas, layanan terpercaya, dan persaudaraan sesama pengendara berpadu dalam satu komunitas.</p>
+      <h3>MISI</h3><hr>
+      <ol>
+        <li>Menyediakan unit Harley-Davidson baru dan bekas yang terinspeksi dan terdokumentasi dengan jelas.</li>
+        <li>Menghadirkan servis, perawatan, dan modifikasi oleh mekanik berpengalaman yang memahami karakter mesin V-Twin.</li>
+        <li>Mendampingi pelanggan dari memilih model, menghitung pembiayaan, hingga perawatan jangka panjang.</li>
+        <li>Menjaga tradisi kumpul setiap malam Minggu pukul 19.00 di bengkel sebagai ruang bertukar cerita.</li>
+        <li>Membangun komunitas yang aman, saling peduli, dan terbuka bagi siapa pun yang berjiwa 1%.</li>
+      </ol>
+    </div>
+    <div class="panel alt">
+      <h3>NILAI PERUSAHAAN</h3><hr>
+      <ul>
+        <li><b>Jiwa 1%</b> - semangat dan kesetiaan lebih penting daripada besar kapasitas mesin.</li>
+        <li><b>Persaudaraan</b> - setiap pengendara adalah bagian dari keluarga besar kami.</li>
+        <li><b>Gaya hidup &amp; komunitas</b> - motor custom adalah cara hidup, bukan sekadar kendaraan.</li>
+        <li><b>Transparan</b> - jujur soal harga dan kondisi unit.</li>
+        <li><b>Keahlian</b> - mekanik berpengalaman yang lahir dari garasi dan kecintaan pada V-Twin.</li>
+        <li><b>Keselamatan</b> - berkendara kencang tetap dengan bertanggung jawab.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="komunitas" class="alt-bg"><div class="wrap center">
+  <div class="eyebrow">Komunitas Kami</div>
+  <h2>MALAM MINGGU DI BENGKEL</h2>
+  <hr class="bar">
+  <p class="sub">Tradisi yang sama sejak garasi pertama kami di tahun 2012.</p>
+  <div class="cards3">
+    <div class="card3"><em>01</em><b>RAWAT &amp; MODIF</b><p>Merawat dan memodifikasi motor bersama, sambil berbagi ilmu antar sesama penggemar V-Twin, Big Cylinder, dan Choppers.</p></div>
+    <div class="card3"><em>02</em><b>BERTUKAR CERITA</b><p>Ruang ngobrol santai tentang perjalanan, motor impian, dan pengalaman di jalan bersama sesama pengendara.</p></div>
+    <div class="card3"><em>03</em><b>JIWA 1%</b><p>Bukan soal kapasitas mesin. Siapa pun yang punya semangat dan kesetiaan di jalan, diterima di sini.</p></div>
+  </div>
+  <div class="cta">SETIAP MALAM MINGGU &nbsp;|&nbsp; 19.00 &nbsp;|&nbsp; DI BENGKEL KAMI<small>Kami harap Anda ikut.</small></div>
+</div></section>
+
+<section id="multimedia"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Galeri Media</div>
+    <h2>MULTIMEDIA</h2>
+    <hr class="bar">
+  </div>
+  <div class="media" style="margin-top:36px">
+    <div class="mbox">
+      <video controls preload="metadata" poster="southside.jpg" playsinline>
+        <source src="video-profil.mp4" type="video/mp4">
+        Browser Anda tidak mendukung tag video. <a href="https://youtu.be/yIbeyuba7A8?si=xvYw8qJexDgZO9vE">Unduh videonya di sini</a>.
+      </video>
+      <div class="mcap"><b>Video Profil Southside Motorsaixel</b></div>
+    </div>
+    <div class="mbox">
+      <div class="audio">
+        <div class="note">&#9835;</div>
+        <b>MUSIK PERJALANAN</b>
+        <i>Putar audio ini sambil menjelajahi halaman kami.</i>
+        <audio controls preload="none">
+          <source src="musik.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung tag audio. <a href="https://youtube.com/playlist?list=RDr0Wj11aH4hY&playnext=1&si=Ty79zLXIUpee2BNZ">Unduh audionya di sini</a>.
+        </audio>
+      </div>
+      <div class="mfoot">Audio / Musik Latar</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="katalog"><div class="wrap">
+  <div class="eyebrow">Katalog</div>
+  <h2>MOTOR PILIHAN</h2>
+  <hr class="bar">
+  <div class="cat" style="margin-top:24px">
+    <aside class="side">
+      <div class="box">
+        <h4>LOMPAT KE</h4>
+        <a href="#tentang">&rsaquo;&nbsp; Tentang Kami</a>
+        <a href="#komunitas">&rsaquo;&nbsp; Komunitas</a>
+        <a href="#multimedia">&rsaquo;&nbsp; Multimedia</a>
+        <a href="#harga">&rsaquo;&nbsp; Daftar Harga</a>
+        <a href="#pesan">&rsaquo;&nbsp; Form Pemesanan</a>
+        <a href="#lokasi" style="border:0">&rsaquo;&nbsp; Lokasi Kami</a>
+      </div>
+      <div class="help">
+        <h4>BUTUH BANTUAN?</h4>
+        Konsultasikan model sesuai tinggi badan dan gaya berkendara Anda.
+        <a href="tel:086666662026" title="Telepon kami">0866-6666-2026</a>
+      </div>
+    </aside>
+    <div class="grid">
+      <article class="pcard"><img src="streetglide.jpg" alt="Street Glide" title="Street Glide" loading="lazy"><div class="in"><small>TOURING</small><h3>STREET GLIDE</h3><p>V-Twin 1.923 cc<br>Fairing batwing, audio premium</p><div class="price">Rp 1.150.000.000</div><a class="btn" href="#pesan" title="Pesan Street Glide">PESAN</a></div></article>
+      <article class="pcard"><img src="fatboy.jpg" alt="Fat Boy" title="Fat Boy" loading="lazy"><div class="in"><small>CRUISER</small><h3>FAT BOY</h3><p>V-Twin 1.923 cc<br>Roda solid ikonik, tampilan kokoh</p><div class="price">Rp 780.000.000</div><a class="btn" href="#pesan" title="Pesan Fat Boy">PESAN</a></div></article>
+      <article class="pcard"><img src="sportster.jpg" alt="Sportster S" title="Sportster S" loading="lazy"><div class="in"><small>SPORT</small><h3>SPORTSTER S</h3><p>Revolution Max 1250T<br>Bertenaga dan modern</p><div class="price">Rp 690.000.000</div><a class="btn" href="#pesan" title="Pesan Sportster S">PESAN</a></div></article>
+      <article class="pcard"><img src="panamerica.jpg" alt="Pan America" title="Pan America" loading="lazy"><div class="in"><small>ADVENTURE</small><h3>PAN AMERICA</h3><p>Revolution Max 1250<br>Siap jelajah jarak jauh</p><div class="price">Rp 820.000.000</div><a class="btn" href="#pesan" title="Pesan Pan America">PESAN</a></div></article>
+      <article class="pcard"><img src="roadking.jpg" alt="Road King" title="Road King" loading="lazy"><div class="in"><small>TOURING</small><h3>ROAD KING</h3><p>V-Twin 1.745 cc<br>Klasik dan nyaman</p><div class="price">Rp 560.000.000</div><a class="btn" href="#pesan" title="Pesan Road King">PESAN</a></div></article>
+      <article class="pcard"><img src="nightster.jpg" alt="Nightster" title="Nightster" loading="lazy"><div class="in"><small>SPORT</small><h3>NIGHTSTER</h3><p>Revolution Max 975T<br>Ringkas, cocok untuk kota</p><div class="price">Rp 470.000.000</div><a class="btn" href="#pesan" title="Pesan Nightster">PESAN</a></div></article>
+    </div>
+  </div>
+</div></section>
+
+<section id="harga" class="alt-bg"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Daftar Harga</div>
+    <h2>HARGA UNIT &amp; KEMITRAAN B2B</h2>
+    <hr class="bar">
+  </div>
+  <p class="hint">&larr; geser tabel ke samping &rarr;</p>
+  <div class="tscroll" style="margin-top:24px">
+    <table class="price" summary="Daftar harga unit baru Harley-Davidson 2026 dan paket kemitraan B2B">
+      <tr><td class="th" colspan="5">DAFTAR HARGA UNIT BARU 2026</td></tr>
+      <tr class="hd"><td>KATEGORI</td><td>MODEL</td><td>MESIN</td><td>HARGA (OTR)</td><td>BONUS PROMO</td></tr>
+      <tr class="r1"><td class="cat-t" rowspan="2" style="background:#3A2A10">TOURING</td><td><b>Street Glide</b></td><td>V-Twin 1.923 cc</td><td class="pr">Rp 1.150.000.000</td><td>Gratis servis perdana</td></tr>
+      <tr class="r2"><td><b>Road King</b></td><td>V-Twin 1.745 cc</td><td class="pr">Rp 560.000.000</td><td>Bonus helm &amp; jaket</td></tr>
+      <tr class="r1"><td class="cat-t" style="background:#2A2F3A">CRUISER</td><td><b>Fat Boy</b></td><td>V-Twin 1.923 cc</td><td class="pr">Rp 780.000.000</td><td>Gratis servis perdana</td></tr>
+      <tr class="r2"><td class="cat-t" rowspan="2" style="background:#3A1A1A">SPORT</td><td><b>Sportster S</b></td><td>Revolution Max 1250T</td><td class="pr">Rp 690.000.000</td><td>Bonus helm &amp; jaket</td></tr>
+      <tr class="r1"><td><b>Nightster</b></td><td>Revolution Max 975T</td><td class="pr">Rp 470.000.000</td><td>Gratis servis perdana</td></tr>
+      <tr class="r2"><td class="cat-t" style="background:#1F3A2A">ADVENTURE</td><td><b>Pan America</b></td><td>Revolution Max 1250</td><td class="pr">Rp 820.000.000</td><td>Gratis servis perdana</td></tr>
+      <tr><td class="th" colspan="5">PAKET KEMITRAAN B2B (KLUB, PERUSAHAAN &amp; DEALER MITRA)</td></tr>
+      <tr class="hd"><td>PAKET</td><td colspan="2">SYARAT PEMBELIAN</td><td colspan="2">KEUNTUNGAN MITRA</td></tr>
+      <tr class="r1"><td style="background:#3A2A10"><b>Klub Komunitas</b></td><td colspan="2">Minimal 3 unit per pemesanan</td><td colspan="2">Diskon aksesori &amp; servis berkala anggota</td></tr>
+      <tr class="r2"><td style="background:#2A2F3A"><b>Perusahaan / Fleet</b></td><td colspan="2">Minimal 5 unit, kontrak resmi</td><td colspan="2">Harga khusus, faktur &amp; pembiayaan korporat</td></tr>
+      <tr class="r1"><td style="background:#1F3A2A"><b>Dealer Mitra</b></td><td colspan="2">Perjanjian kerja sama tahunan</td><td colspan="2">Suplai unit, suku cadang &amp; pelatihan mekanik</td></tr>
+      <tr><td colspan="5" style="background:#000;font-family:var(--serif);font-style:italic;color:#BDBDBD;font-size:.8rem">Harga dapat berubah sewaktu-waktu. Hubungi 0866-6666-2026 untuk penawaran terbaik.</td></tr>
+    </table>
+  </div>
+</div></section>
+
+<section id="pesan"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Pemesanan</div>
+    <h2>AMANKAN MOTOR IMPIAN ANDA</h2>
+    <hr class="bar">
+    <p class="sub">Isi formulir di bawah, tim kami akan menghubungi Anda untuk jadwal test ride dan penawaran terbaik.</p>
+  </div>
+  <div class="steps">
+    <div><b>1</b>Isi Formulir</div>
+    <div><b>2</b>Tim Kami Menghubungi</div>
+    <div><b>3</b>Test Ride &amp; Deal</div>
+  </div>
+
+  <form action="mailto:southsidemotorsaixel@yahoo.com" method="post" enctype="text/plain" name="formpesan">
+    <div class="fh"><b>FORMULIR PEMESANAN &amp; TEST RIDE</b><span style="font-size:.85rem">Kolom bertanda <b style="display:inline;font-size:inherit">*</b> wajib diisi</span></div>
+
+    <div class="fs">01 &nbsp;|&nbsp; DATA DIRI</div>
+    <div class="row"><div><label for="nama">Nama Lengkap <span class="o">*</span></label><small>Sesuai KTP</small></div>
+      <input type="text" id="nama" name="nama" maxlength="60" placeholder="Masukkan nama lengkap" autocomplete="name" required></div>
+    <div class="row"><div><label for="kota">Kota Domisili <span class="o">*</span></label><small>Untuk estimasi pengiriman</small></div>
+      <input type="text" id="kota" name="kota" maxlength="40" placeholder="Contoh: Bandung" autocomplete="address-level2" required></div>
+    <div class="row"><div><label for="telepon">WhatsApp / Telepon <span class="o">*</span></label><small>Nomor aktif yang bisa dihubungi</small></div>
+      <input type="tel" id="telepon" name="telepon" maxlength="15" placeholder="Contoh: 0812xxxxxxxx" pattern="[0-9+]{9,15}" title="Isi 9 sampai 15 digit angka, tanpa spasi atau tanda hubung" autocomplete="tel" inputmode="tel" required></div>
+    <div class="row"><div><label for="email">Email <span class="o">*</span></label><small>Untuk menerima penawaran resmi</small></div>
+      <input type="email" id="email" name="email" maxlength="60" placeholder="nama@email.com" autocomplete="email" required></div>
+
+    <div class="fs">02 &nbsp;|&nbsp; PILIHAN MOTOR</div>
+    <div class="row"><div><label for="model">Model yang Diminati <span class="o">*</span></label><small>Pilih satu model</small></div>
+      <select id="model" name="model" required>
+        <option value="">-- Pilih Model --</option>
+        <optgroup label="Touring"><option value="streetglide">Street Glide</option><option value="roadking">Road King</option></optgroup>
+        <optgroup label="Cruiser"><option value="fatboy">Fat Boy</option></optgroup>
+        <optgroup label="Sport"><option value="sportster">Sportster S</option><option value="nightster">Nightster</option></optgroup>
+        <optgroup label="Adventure"><option value="panamerica">Pan America</option></optgroup>
+      </select></div>
+    <div class="row"><div><span class="lbl">Kondisi Unit <span class="o">*</span></span><small>Baru atau bekas</small></div>
+      <div class="opts inline">
+        <label for="baru"><input type="radio" id="baru" name="kondisi" value="baru" required> Baru</label>
+        <label for="bekas"><input type="radio" id="bekas" name="kondisi" value="bekas"> Bekas</label>
+      </div></div>
+
+    <div class="fs">03 &nbsp;|&nbsp; LAYANAN TAMBAHAN</div>
+    <div class="row"><div><span class="lbl">Layanan yang Dibutuhkan</span><small>Boleh pilih lebih dari satu</small></div>
+      <div class="opts">
+        <label for="testride"><input type="checkbox" id="testride" name="layanan_testride" value="testride"> Test Ride</label>
+        <label for="tradein"><input type="checkbox" id="tradein" name="layanan_tradein" value="tradein"> Trade-in Motor Lama</label>
+        <label for="kredit"><input type="checkbox" id="kredit" name="layanan_kredit" value="kredit"> Konsultasi Pembiayaan</label>
+        <label for="kumpul"><input type="checkbox" id="kumpul" name="layanan_kumpul" value="kumpul"> Info Kumpul Malam Minggu</label>
+      </div></div>
+
+    <div class="fs">04 &nbsp;|&nbsp; CATATAN</div>
+    <div class="row"><div><label for="pesan-text">Pesan Tambahan</label><small>Warna, modifikasi, atau pertanyaan lain</small></div>
+      <textarea id="pesan-text" name="pesan" rows="6" maxlength="500" placeholder="Tulis kebutuhan atau pertanyaan Anda di sini..."></textarea></div>
+
+    <div class="fsub">
+      <input type="submit" value="KIRIM PESANAN" title="Kirim formulir pemesanan">
+      <input type="reset" value="HAPUS ISIAN" title="Kosongkan semua isian">
+      <p>Data Anda hanya digunakan untuk keperluan pemesanan dan tidak dibagikan ke pihak lain.</p>
+    </div>
+  </form>
+</div></section>
+
+<section id="lokasi"><div class="wrap">
+  <div class="eyebrow">Kunjungi Kami</div>
+  <h2>LOKASI BENGKEL &amp; SHOWROOM</h2>
+  <hr class="bar">
+  <div class="loc" style="margin-top:24px">
+    <div class="info">
+      <div><span class="ic">&#8962;</span><span><small>ALAMAT</small><span class="v">Southside Motorsaixel<br>Bandung Selatan, Jawa Barat</span></span></div>
+      <div><span class="ic">&#9742;</span><span><small>TELEPON</small><a href="tel:086666662026" title="Telepon kami">0866-6666-2026</a></span></div>
+      <div><span class="ic">&#9993;</span><span><small>EMAIL</small><a href="mailto:southsidemotorsaixel@yahoo.com" title="Kirim email">southsidemotorsaixel@yahoo.com</a></span></div>
+      <div><span class="ic">&#9719;</span><span><small>JAM BUKA</small><span class="v">Sabtu sore - Minggu pagi</span></span></div>
+      <div><span class="ic">&#9733;</span><span><small>KUMPUL KOMUNITAS</small><span class="v">Setiap Malam Minggu, pukul 19.00</span></span></div>
+    </div>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126710.29018883753!2d107.48932800788765!3d-7.044899371843408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e646c4fb9a03%3A0x7b9d35a0086917e!2sSiliwangi%20Harley-Davidson%20Bandung!5e0!3m2!1sid!2sid!4v1795266007833!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Peta lokasi Southside Motorsaixel di Bandung"></iframe>
+      <a href="https://maps.app.goo.gl/qpsJFCx3XZLsK5F48" target="_blank" rel="noopener" title="Buka di Google Maps">BUKA DI GOOGLE MAPS &rsaquo;</a>
+    </div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div class="logo" style="font-size:1.5rem">SOUTHSIDE <span class="o">MOTORSAIXEL</span></div>
+      <p style="margin-top:12px">Toko motor, bengkel, dan komunitas untuk para pecinta V-Twin, Big Cylinder, dan Choppers. Sejak 2012 di Bandung Selatan.</p>
+    </div>
+    <div>
+      <h4>MENU</h4><hr>
+      <ul>
+        <li><a href="#beranda">Beranda</a></li><li><a href="#tentang">Tentang Kami</a></li><li><a href="#komunitas">Komunitas</a></li><li><a href="#multimedia">Multimedia</a></li>
+        <li><a href="#katalog">Katalog</a></li><li><a href="#harga">Daftar Harga</a></li><li><a href="#pesan">Pemesanan</a></li><li><a href="#lokasi">Lokasi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>LAYANAN</h4><hr>
+      <ul><li>Penjualan Unit</li><li>Trade-in</li><li>Servis &amp; Modifikasi</li></ul>
+    </div>
+    <div>
+      <h4>KONTAK</h4><hr>
+      <ul>
+        <li><a href="tel:086666662026">0866-6666-2026</a></li>
+        <li><a href="mailto:southsidemotorsaixel@yahoo.com">southsidemotorsaixel@yahoo.com</a></li>
+        <li>Bandung Selatan</li>
+        <li>Kumpul: Malam Minggu 19.00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">
+    <a href="#atas" title="Kembali ke atas halaman">&uarr; KEMBALI KE ATAS</a><br><br>
+    &copy; 2026 <b>Southside Motorsaixel</b>. Hak Cipta Dilindungi Undang-Undang.
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var b=document.getElementById('burger'), m=document.getElementById('menu');
+    b.addEventListener('click',function(){
+      var o=m.classList.toggle('open'); b.setAttribute('aria-expanded',o);
+    });
+    m.addEventListener('click',function(e){
+      if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false');}
+    });
+  })();
+</script>
+</body>
+</html>
